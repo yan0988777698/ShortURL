@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --spacing-gap: 32px;
+  --row-height: 20px;
+  --font-family-sans: var(--font-geist-sans);
+  --font-family-mono: var(--font-geist-mono);
+  --background-gradient: linear-gradient(to bottom, #1a202c, #2d3748, #4a5568);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: var(--font-geist-sans), sans-serif;
+  background-color: #1a202c; /* Dark gray */
+  color: #f7fafc; /* Light gray */
+}
+
+header {
+  background-color: #2d3748; /* Darker gray */
+  color: #edf2f7; /* Light gray */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background-color: #2d3748; /* Darker gray */
+  color: #a0aec0; /* Muted gray */
+  text-align: center;
+  padding: 1rem 0;
+}
+
+main {
+  padding: 1.5rem;
+}
+
+/* Split the container styles into header-container and body-container */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.body-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 1024px) {
+  .body-container {
+    padding: 0 10rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .body-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .body-container {
+    padding: 0 2rem;
+  }
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-rows: var(--row-height) 1fr var(--row-height);
+  gap: var(--spacing-gap);
+  min-height: 100vh;
+  justify-items: center;
+  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap);
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .main-content {
+    align-items: flex-start;
+  }
+}
+
+/* Common typography styles */
+
+.text-heading {
+  @apply text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-gray-50 mb-8 mt-4 drop-shadow-lg;
+}
+
+.text-paragraph {
+  @apply text-gray-400 text-base leading-relaxed mb-4;
+}
+
+.text-subheading {
+  @apply text-xl font-semibold text-gray-200 mt-6 mb-2;
+}
+
+.text-small {
+  @apply text-sm font-medium;
+}
+
+/* Extracted shared styles for section headers */
+.section-header {
+  @apply text-xl font-semibold text-gray-200 mt-6 mb-2;
+}
+
+/* Added a reusable class for the specified styles */
+.card-container {
+  @apply w-full max-w-2xl bg-gray-800 text-gray-100 shadow-lg rounded-lg p-10 space-y-8 transform transition-transform duration-300 hover:scale-105;
+}
+
+.card-container:hover {
+  @apply hover:scale-105 /* hover:scale-105 */;
+}
